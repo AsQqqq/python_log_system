@@ -3,6 +3,7 @@
 import logging
 from colorama import Fore, Style
 import time
+from os import system
 
 
 # CONFIG
@@ -11,9 +12,15 @@ path_to_logs = ""
 saving_logs = True
 log_output_delay = 0.05
 log_output_to_the_console = True
-
+terminal_cleanup_command = 'clear'
 
 # MAIN FUNC
+
+if log_output_to_the_console == False:
+    log_output_delay = 0
+
+def clear_():
+    system(terminal_cleanup_command)
 
 def info_(path, text):
     text_ = f"{path} >>> {text}"
